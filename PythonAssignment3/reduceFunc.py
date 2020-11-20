@@ -1,4 +1,4 @@
-def reduce(func, list):
+def myreduce(func, list):
 	s=0
 	for i in list:
 		s=func(s,i)
@@ -18,4 +18,4 @@ def mult(a,b):
 
 
 # syntax: reduce(function name, list)
-print(reduce(sub, [10,20,30,40,50]))
+print(myreduce(add, [10,20,30,40,50]))

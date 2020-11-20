@@ -1,4 +1,4 @@
-def filter(func, list):
+def myfilter(func, list):
 	filterArr = [i for i in list if func(i) is True]
 	
 	return filterArr
@@ -19,4 +19,4 @@ def isOdd(a):
 	return False
 
 #syntax: filter(function, list)
-print(filter(isEven,[1,2,3,4,5,6,7,8,9,10]))
+print(myfilter(isEven,[1,2,3,4,5,6,7,8,9,10]))
