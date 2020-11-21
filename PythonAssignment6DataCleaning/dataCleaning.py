@@ -55,8 +55,13 @@ temp_df = pd.DataFrame({'From':fromLoc, 'To': toLoc})
 
 #3.
 temp_df = temp_df.apply(strStandard)
-print(temp_df)
+#print(temp_df)
 
+#4.
+#print(df)
+df.drop('From_To', inplace=True, axis=1)
+final_df = pd.concat([temp_df, df], axis=1, sort = False)
+#print(final_df)
 
 
 
