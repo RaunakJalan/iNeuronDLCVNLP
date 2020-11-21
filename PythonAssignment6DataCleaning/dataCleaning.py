@@ -60,19 +60,12 @@ temp_df = temp_df.apply(strStandard)
 #4.
 #print(df)
 df.drop('From_To', inplace=True, axis=1)
-final_df = pd.concat([temp_df, df], axis=1, sort = False)
-#print(final_df)
+concat_df = pd.concat([temp_df, df], axis=1, sort = False)
+#print(concat_df)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+#5.
+delay = concat_df['RecentDelays'].apply(pd.Series)
+delay.columns = ["Delay{}".format(i+1) for i in range(len(delay.columns))]
+concat_df.drop('RecentDelays',inplace=True, axis=1)
+final_df = pd.concat([concat_df, delay], axis=1, sort=False)
+print(final_df)
