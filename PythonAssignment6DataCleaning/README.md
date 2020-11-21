@@ -1,11 +1,12 @@
 # Original Data
 
-            From_To  FlightNumber  RecentDelays              Airline
-0      LoNDon_paris           NaN      [23, 47]               KLM(!)
-1      MAdrid_miLAN           NaN            []     <Air France>(12)
-2  londON_StockhOlm       10065.0  [24, 43, 87]  (British Airways. )
-3    Budapest_PaRis           NaN          [13]       12. Air France
-4   Brussels_londOn           NaN      [67, 32]            Swiss Air
+| From_To          	| FlightNumber 	| RecentDelays 	| Airline             	|
+|------------------	|--------------	|--------------	|---------------------	|
+| LoNDon_paris     	| NaN          	| [23, 47]     	| KLM(!)              	|
+| MAdrid_miLAN     	| NaN          	| []           	| (12)                	|
+| londON_StockhOlm 	| 10065.0      	| [24, 43, 87] 	| (British Airways. ) 	|
+| Budapest_PaRis   	| NaN          	| [13]         	| 12. Air France      	|
+| Brussels_londOn  	| NaN          	| [67, 32]     	| Swiss Air           	|
 
 # After first operation: Replacing NAN flight numbers
 
