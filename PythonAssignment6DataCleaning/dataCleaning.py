@@ -37,31 +37,32 @@ data = {
 }
 
 df = pd.DataFrame(data)
+print(df)
 
 #print(type(df['FlightNumber']))
 #1. 
 df['FlightNumber'] = fillMissing(df['FlightNumber'])
-#print(df)
+print(df)
 
 #2.
 fromto = list(df['From_To'])
 fromtoSplit = [x.split('_') for x in fromto]
 fromLoc, toLoc = [x[0] for x in fromtoSplit], [x[1] for x in fromtoSplit]
 temp_df = pd.DataFrame({'From':fromLoc, 'To': toLoc})
-#print(temp_df)
+print(temp_df)
 
 
 
 
 #3.
 temp_df = temp_df.apply(strStandard)
-#print(temp_df)
+print(temp_df)
 
 #4.
 #print(df)
 df.drop('From_To', inplace=True, axis=1)
 concat_df = pd.concat([temp_df, df], axis=1, sort = False)
-#print(concat_df)
+print(concat_df)
 
 #5.
 delay = concat_df['RecentDelays'].apply(pd.Series)
