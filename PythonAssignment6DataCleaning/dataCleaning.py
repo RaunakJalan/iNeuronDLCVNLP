@@ -23,6 +23,12 @@ def fillMissing(FlightNumber):
 
 	return dup_data
 
+def strStandard(val):
+	val = val.apply(lambda x:x.title())
+	return val
+
+
+
 data = {
 	'From_To':['LoNDon_paris', 'MAdrid_miLAN','londON_StockhOlm','Budapest_PaRis', 'Brussels_londOn'],
 	'FlightNumber':[np.nan, np.nan, 10065, np.nan, np.nan],
@@ -33,5 +39,35 @@ data = {
 df = pd.DataFrame(data)
 
 #print(type(df['FlightNumber']))
+#1. 
 df['FlightNumber'] = fillMissing(df['FlightNumber'])
-print(df)
+#print(df)
+
+#2.
+fromto = list(df['From_To'])
+fromtoSplit = [x.split('_') for x in fromto]
+fromLoc, toLoc = [x[0] for x in fromtoSplit], [x[1] for x in fromtoSplit]
+temp_df = pd.DataFrame({'From':fromLoc, 'To': toLoc})
+#print(temp_df)
+
+
+
+
+#3.
+temp_df = temp_df.apply(strStandard)
+print(temp_df)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
