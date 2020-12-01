@@ -1,10 +1,10 @@
 from bs4 import BeautifulSoup
 import requests
 
+
 class reviewScrapper:
-    def __init__(self, product = None):
+    def __init__(self, product=None):
         self.url = "https://www.flipkart.com/realme-narzo-20-glory-silver-64-gb/p/itm4ac58d879006d?pid=MOBFVEATBBRGJBKH&lid=LSTMOBFVEATBBRGJBKH4OKPVI&marketplace=FLIPKART&srno=s_1_3&otracker=search&otracker1=search&fm=SEARCH&iid=fd57f73e-72f3-4e01-a8f6-11932d452473.MOBFVEATBBRGJBKH.SEARCH&ppt=sp&ppn=sp&ssid=29j5rntx0mp8c1s01606757338074&qH=bcdc2513ea0bb0e5"
-        
         self.baseUrl = 'https://www.flipkart.com'
 
     def reviewScrap(self):
@@ -42,9 +42,9 @@ class reviewScrapper:
             for review in all_reviews:
                 rating = review.find('div', {'class': '_3LWZlK _1BLPMq'})
                 if rating is None:
-                    rating  = review.find('div', {'class': '_3LWZlK _1rdVr6 _1BLPMq'})
+                    rating = review.find('div', {'class': '_3LWZlK _1rdVr6 _1BLPMq'})
                 if rating is None:
-                    rating  = review.find('div', {'class': '_3LWZlK _32lA32 _1BLPMq'})
+                    rating = review.find('div', {'class': '_3LWZlK _32lA32 _1BLPMq'})
                 rating = rating.text
                 review_header = review.find('p', {'class': '_2-N8zT'}).text
                 detailed_review = review.find('div', {'class': 't-ZTKy'}).text
@@ -69,7 +69,7 @@ class reviewScrapper:
                 if review_links[0].get_text() == "Previous":
                     break
                 else:
-                    url =self.baseUrl + str(review_links[0].get('href'))
+                    url = self.baseUrl + str(review_links[0].get('href'))
             elif len(review_links) > 1:
                 url = self.baseUrl + str(review_links[1].get('href'))
             else:
